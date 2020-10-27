@@ -22,6 +22,7 @@ class KidFactory extends Factory
     public function definition()
     {
         $varNames = array('Male','Female');
+        $varPackages = array('1','2','3');
         $var = array_rand($varNames);
 
         return [
@@ -32,7 +33,7 @@ class KidFactory extends Factory
             'place_birth' => $this->faker->uuid,
             'gender' => $varNames[$var],
             'photo' => $this->faker->image,
-            'package_id' => '1'
+            'package_id' => $varPackages[$var],
 
         ];
     }

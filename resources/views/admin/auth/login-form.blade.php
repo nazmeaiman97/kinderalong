@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('admin.layouts.app')
 
 @section('content')
 
@@ -98,8 +98,8 @@
     <!-- PICTURE -->
 
     <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 pt-10" data-aos="fade-left">
-        <img class="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full"
-            src="storage/svg/Admin-login.png"
+        <img class="h-0 w-full object-cover sm:h-72 md:h-400 lg:w-full lg:h-full"
+            src="storage/admin/Admin-login.png"
             alt="">
     </div>
 </div>
@@ -113,7 +113,7 @@
             <span class="text-indigo-600">Home Of Quality Schools </span>
         </h2>
         <div class="mt-8 flex lg:flex-shrink-0 lg:mt-0">
-            <div class="inline-flex rounded-md shadow">
+            <div class="inline-flex rounded-md shadow" >
                 <a href="#"
                     class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:shadow-outline transition duration-150 ease-in-out">
                     Get started

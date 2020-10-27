@@ -28,7 +28,7 @@ class AdminLoginController extends Controller
         // Attempt to log the user in
         if (Auth::guard('admin')->attempt(['email'=> $request->email, 'password' => $request->password], $request->remember )){
                 // If successful, then redirect to dashboard
-                return redirect()->intended('admin/dashboard');
+                return redirect()->intended('kids');
 
         }
 
@@ -39,6 +39,6 @@ class AdminLoginController extends Controller
     public function logout()
     {
         Auth::guard('admin')->logout();
-         return redirect('admin/login');
+         return redirect('admin');
     }
 }

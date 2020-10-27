@@ -5,9 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+
 class Kid extends Model
 {
     use HasFactory;
+
 
     protected $guarded = [];
 
@@ -25,4 +27,5 @@ class Kid extends Model
     {
         return $this->belongsToMany('App\Models\Guardian', 'guardian_kid');
     }
+
 }

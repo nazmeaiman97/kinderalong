@@ -19,11 +19,12 @@
     <!-- Styles -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
 </head>
 
 <body class="bg-white bg-contain bg-center h-screen antialiased leading-none font-mono">
 
-    <div id="app">
+    <div id="no-app">
         <header class=" sticky h-22 bg-white py-8 uppercase  ">
             <div class="container mx-auto flex justify-between">
                 <span><img class="w-20 h-20" src="storage/Logo.png" alt="ChitChat Logo"></span>

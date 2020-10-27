@@ -40,5 +40,23 @@ class TestUserSeeder extends Seeder
                 ]);
             }
         }
+
+        DB::table('packages')->insert([
+        [
+            'name' => 'Sunflower',
+            'description' => 'Half Care',
+            'price' => '120',
+        ],
+        [
+            'name' => 'Hibiscus',
+            'description' => 'Quarter Care',
+            'price' => '140',
+        ],
+        [
+            'name' => 'Rafflesia',
+            'description' => 'Full Care',
+            'price' => '160',
+        ]
+    ]);
     }
 }
