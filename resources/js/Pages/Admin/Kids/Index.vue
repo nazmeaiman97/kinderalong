@@ -163,6 +163,7 @@
                 </div>
             </div>
         </body>
+
         <!-- Body of Student List -->
         <body class="font-sans bg-gray-200">
             <div class="container mx-auto sm:px-8">
@@ -495,8 +496,6 @@
                         <div class=" bg-indigo-500 ">
                             <slot name="header" />
 
-
-
                             <button
                                 type="button"
                                 class="modal__close float-right"
@@ -505,29 +504,65 @@
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     viewBox="0 0 352 512"
-                                    class="w-6 h-6 bg-red-600 inline-block"
+                                    class="w-6 h-6 bg-red-500 inline-block"
                                 >
                                     <path
-                                        fill="currentColor"
+                                        fill="white"
                                         d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
                                     ></path>
                                 </svg>
                             </button>
-                            <h1 class="text-white font-bold uppercase text-center m-5">Register New Student</h1>
+                            <h1
+                                class="text-white font-bold uppercase text-center m-5"
+                            >
+                                Register New Student
+                            </h1>
                         </div>
 
                         <div class="modal__body ">
                             <slot name="body" />
+
+                            <!-- Error Box -->
+
+                            <div
+                                class="bg-red-100 border-t-4 border-red-500 rounded-b text-red-900 px-4 py-3 shadow-md mb-10"
+                                role="alert"
+                                v-show="isEmpty(errors)"
+                            >
+                                <div class="flex">
+                                    <div class="py-1">
+                                        <svg
+                                            class="fill-current h-6 w-6 text-red-500 mr-4"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 20 20"
+                                        >
+                                            <path
+                                                d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM9 11V9h2v6H9v-4zm0-6h2v2H9V5z"
+                                            />
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <p class="font-bold">
+                                            An Error Occurred
+                                        </p>
+                                        <p class="text-sm">
+                                            Please Change the Input of the
+                                            Following Error(s) in the form
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
                             <!-- Start Form -->
-                            <form  class="z-30 ">
+                            <form class="z-30 ">
                                 <div
                                     class="justify-center text-center text-sm font-bold mb-2 uppercase"
                                 >
                                     Package
                                 </div>
-                                <div class="flex flex-wrap -mx-3 ">
+                                <div class="flex flex-wrap -mx-3 mb-10 ">
                                     <div
-                                        class="container mx-auto flex justify-center mb-10"
+                                        class="container mx-auto flex justify-center "
                                     >
                                         <div
                                             class="radio-group inline-flex  flex-row flex-initial justify-center rounded-lg shadow-md"
@@ -540,7 +575,8 @@
                                                     id="Sunflower"
                                                     name="package"
                                                     value="1"
-                                                    v-model="form.package_id" :error="errors.package_id"
+                                                    v-model="form.package_id"
+                                                    :error="errors.package_id"
                                                     checked
                                                 />
                                                 <label
@@ -548,14 +584,16 @@
                                                     class="block text-center px-4 py-3 bg-white  border-grey border-solid border-2 w-32 h-32"
                                                 >
                                                     <div class="text-3xl mb-2">
-                                                        🌻
+                                                        <img
+                                                            class="w-12 h-12 ml-5"
+                                                            src="storage/icon/sunflower.svg"
+                                                            alt=""
+                                                        />
                                                     </div>
                                                     <div
                                                         class="font-semibold uppercase tracking-wide"
                                                     >
-                                                        <strong
-                                                            >Sunflower</strong
-                                                        >
+                                                        <h3>Sunflower</h3>
                                                     </div>
                                                 </label>
                                             </div>
@@ -566,7 +604,8 @@
                                                     type="radio"
                                                     id="Hibiscus"
                                                     name="package"
-                                                     v-model="form.package_id" :error="errors.package_id"
+                                                    v-model="form.package_id"
+                                                    :error="errors.package_id"
                                                     value="2"
                                                 />
                                                 <label
@@ -574,14 +613,16 @@
                                                     class="block text-center px-4 py-3 bg-white  border-grey border-solid border-2 w-32 h-32"
                                                 >
                                                     <div class="text-3xl mb-2">
-                                                        🌺
+                                                        <img
+                                                            class="w-12 h-12 ml-5"
+                                                            src="storage/icon/hibiscus.svg"
+                                                            alt=""
+                                                        />
                                                     </div>
                                                     <div
                                                         class="font-semibold uppercase tracking-wide"
                                                     >
-                                                        <strong
-                                                            >Hibiscus</strong
-                                                        >
+                                                        <h3>Hibiscus</h3>
                                                     </div>
                                                 </label>
                                             </div>
@@ -592,26 +633,280 @@
                                                     type="radio"
                                                     id="rafflesia"
                                                     name="package"
-                                                    v-model="form.package_id" :error="errors.package_id"
+                                                    v-model="form.package_id"
+                                                    :error="errors.package_id"
                                                     value="3"
                                                 />
                                                 <label
                                                     for="rafflesia"
-                                                    class="block text-center px-4 py-3 bg-white  border-grey border-solid border-2 w-32 h-32"
+                                                    class="block text-center content-center px-4 py-3 bg-white  border-grey border-solid border-2 w-32 h-32"
                                                 >
                                                     <div class="text-3xl mb-2">
-                                                        🏵️
+                                                        <svg
+                                                            id="Capa_1"
+                                                            enable-background="new 0 0 496.991 496.991"
+                                                            class="ml-5"
+                                                            height="50"
+                                                            viewBox="0 0 496.991 496.991"
+                                                            width="50"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                        >
+                                                            <g>
+                                                                <path
+                                                                    d="m353.472 392.454-4.489-6.178h-200.975l-4.489 6.178c-28.818 39.663-.483 95.272 48.543 95.272h112.865c49.028 0 77.362-55.609 48.545-95.272z"
+                                                                    fill="#e44c53"
+                                                                />
+                                                                <path
+                                                                    d="m348.983 386.276v-138.307h-200.975v138.306c-21.612 29.746-.363 71.451 36.406 71.451h128.163c36.769 0 58.018-41.705 36.406-71.45z"
+                                                                    fill="#fb6449"
+                                                                />
+                                                                <path
+                                                                    d="m418.348 192.779-7.263 2.36-62.105 191.138 4.489 6.178c28.817 39.664 90.46 29.901 105.61-16.727l34.877-107.341c15.151-46.627-28.981-90.758-75.608-75.608z"
+                                                                    fill="#fb6449"
+                                                                />
+                                                                <path
+                                                                    d="m411.085 195.139-131.537-42.739-31.052 95.569 100.484 138.308c21.612 29.746 67.842 22.424 79.204-12.544l39.605-121.89c11.362-34.969-21.735-68.066-56.704-56.704z"
+                                                                    fill="#fb8151"
+                                                                />
+                                                                <path
+                                                                    d="m248.494 69.376v7.637l162.592 118.13 7.263-2.36c46.627-15.15 56.391-76.793 16.727-105.61l-91.31-66.341c-39.663-28.818-95.272-.483-95.272 48.544z"
+                                                                    fill="#e44c53"
+                                                                />
+                                                                <path
+                                                                    d="m248.494 77.012-81.294 111.892 81.296 59.065 162.59-52.827c34.969-11.362 42.291-57.592 12.545-79.204l-103.686-75.332c-29.747-21.612-71.451-.362-71.451 36.406z"
+                                                                    fill="#fb6449"
+                                                                />
+                                                                <path
+                                                                    d="m78.642 192.782 7.263 2.36 162.592-118.13v-7.637c0-49.027-55.609-77.361-95.272-48.544l-91.31 66.341c-39.663 28.818-29.9 90.461 16.727 105.61z"
+                                                                    fill="#fb6449"
+                                                                />
+                                                                <path
+                                                                    d="m85.905 195.142 81.295 111.892 81.296-59.065.002-170.957c0-36.768-41.704-58.018-71.451-36.406l-103.686 75.333c-29.747 21.612-22.424 67.842 12.544 79.203z"
+                                                                    fill="#fb8151"
+                                                                />
+                                                                <path
+                                                                    d="m143.522 392.456 4.489-6.178-62.105-191.139-7.263-2.36c-46.627-15.151-90.759 28.981-75.609 75.608l34.877 107.341c15.151 46.628 76.794 56.391 105.611 16.728z"
+                                                                    fill="#fb8151"
+                                                                />
+                                                                <path
+                                                                    d="m148.011 386.277 100.485-138.308-162.589-52.83c-34.969-11.362-68.066 21.735-56.704 56.703l39.605 121.89c11.361 34.97 57.591 42.292 79.203 12.545z"
+                                                                    fill="#fb9c59"
+                                                                />
+                                                                <circle
+                                                                    cx="248.496"
+                                                                    cy="247.969"
+                                                                    fill="#e44c53"
+                                                                    r="153"
+                                                                />
+                                                                <circle
+                                                                    cx="248.496"
+                                                                    cy="247.969"
+                                                                    fill="#79493c"
+                                                                    r="123"
+                                                                />
+                                                                <circle
+                                                                    cx="248.496"
+                                                                    cy="247.969"
+                                                                    fill="#fb6449"
+                                                                    r="93"
+                                                                />
+                                                                <g
+                                                                    fill="#fbf6c3"
+                                                                >
+                                                                    <circle
+                                                                        cx="202.845"
+                                                                        cy="262.802"
+                                                                        r="15"
+                                                                    />
+                                                                    <circle
+                                                                        cx="248.496"
+                                                                        cy="295.969"
+                                                                        r="15"
+                                                                    />
+                                                                    <circle
+                                                                        cx="294.146"
+                                                                        cy="262.802"
+                                                                        r="15"
+                                                                    />
+                                                                    <circle
+                                                                        cx="276.709"
+                                                                        cy="209.137"
+                                                                        r="15"
+                                                                    />
+                                                                    <circle
+                                                                        cx="220.282"
+                                                                        cy="209.137"
+                                                                        r="15"
+                                                                    />
+                                                                </g>
+                                                                <circle
+                                                                    cx="248.496"
+                                                                    cy="430.969"
+                                                                    fill="#fbcf72"
+                                                                    r="7.5"
+                                                                />
+                                                                <circle
+                                                                    cx="278.496"
+                                                                    cy="457.726"
+                                                                    fill="#fbcf72"
+                                                                    r="7.5"
+                                                                />
+                                                                <circle
+                                                                    cx="218.496"
+                                                                    cy="457.726"
+                                                                    fill="#fbcf72"
+                                                                    r="7.5"
+                                                                />
+                                                                <circle
+                                                                    cx="188.496"
+                                                                    cy="430.969"
+                                                                    fill="#fbcf72"
+                                                                    r="7.5"
+                                                                />
+                                                                <circle
+                                                                    cx="308.496"
+                                                                    cy="430.969"
+                                                                    fill="#fbcf72"
+                                                                    r="7.5"
+                                                                />
+                                                                <circle
+                                                                    cx="422.539"
+                                                                    cy="304.519"
+                                                                    fill="#faec8e"
+                                                                    r="7.5"
+                                                                />
+                                                                <circle
+                                                                    cx="457.257"
+                                                                    cy="284.256"
+                                                                    fill="#faec8e"
+                                                                    r="7.5"
+                                                                />
+                                                                <circle
+                                                                    cx="438.716"
+                                                                    cy="341.319"
+                                                                    fill="#faec8e"
+                                                                    r="7.5"
+                                                                />
+                                                                <circle
+                                                                    cx="403.998"
+                                                                    cy="361.583"
+                                                                    fill="#faec8e"
+                                                                    r="7.5"
+                                                                />
+                                                                <circle
+                                                                    cx="441.08"
+                                                                    cy="247.456"
+                                                                    fill="#faec8e"
+                                                                    r="7.5"
+                                                                />
+                                                                <circle
+                                                                    cx="356.06"
+                                                                    cy="99.919"
+                                                                    fill="#fbcf72"
+                                                                    r="7.5"
+                                                                />
+                                                                <circle
+                                                                    cx="347.517"
+                                                                    cy="60.639"
+                                                                    fill="#fbcf72"
+                                                                    r="7.5"
+                                                                />
+                                                                <circle
+                                                                    cx="396.058"
+                                                                    cy="95.906"
+                                                                    fill="#fbcf72"
+                                                                    r="7.5"
+                                                                />
+                                                                <circle
+                                                                    cx="404.601"
+                                                                    cy="135.186"
+                                                                    fill="#fbcf72"
+                                                                    r="7.5"
+                                                                />
+                                                                <circle
+                                                                    cx="307.519"
+                                                                    cy="64.652"
+                                                                    fill="#fbcf72"
+                                                                    r="7.5"
+                                                                />
+                                                                <circle
+                                                                    cx="140.931"
+                                                                    cy="99.919"
+                                                                    fill="#faec8e"
+                                                                    r="7.5"
+                                                                />
+                                                                <circle
+                                                                    cx="100.933"
+                                                                    cy="95.906"
+                                                                    fill="#faec8e"
+                                                                    r="7.5"
+                                                                />
+                                                                <circle
+                                                                    cx="149.474"
+                                                                    cy="60.639"
+                                                                    fill="#faec8e"
+                                                                    r="7.5"
+                                                                />
+                                                                <circle
+                                                                    cx="189.472"
+                                                                    cy="64.652"
+                                                                    fill="#faec8e"
+                                                                    r="7.5"
+                                                                />
+                                                                <circle
+                                                                    cx="92.39"
+                                                                    cy="135.186"
+                                                                    fill="#faec8e"
+                                                                    r="7.5"
+                                                                />
+                                                                <circle
+                                                                    cx="74.452"
+                                                                    cy="304.519"
+                                                                    fill="#fbf6c3"
+                                                                    r="7.5"
+                                                                />
+                                                                <circle
+                                                                    cx="58.276"
+                                                                    cy="341.319"
+                                                                    fill="#fbf6c3"
+                                                                    r="7.5"
+                                                                />
+                                                                <circle
+                                                                    cx="39.735"
+                                                                    cy="284.256"
+                                                                    fill="#fbf6c3"
+                                                                    r="7.5"
+                                                                />
+                                                                <circle
+                                                                    cx="55.911"
+                                                                    cy="247.456"
+                                                                    fill="#fbf6c3"
+                                                                    r="7.5"
+                                                                />
+                                                                <circle
+                                                                    cx="92.993"
+                                                                    cy="361.583"
+                                                                    fill="#fbf6c3"
+                                                                    r="7.5"
+                                                                />
+                                                            </g>
+                                                        </svg>
                                                     </div>
                                                     <div
                                                         class="font-semibold uppercase tracking-wide"
                                                     >
-                                                        <strong
-                                                            >Rafflesia</strong
-                                                        >
+                                                        <h3>Rafflesia</h3>
                                                     </div>
                                                 </label>
                                             </div>
                                         </div>
+                                    </div>
+                                    <div
+                                        class="container flex justify-center mt-1"
+                                    >
+                                        <p class="text-red-700 italic">
+                                            {{ errors.package_id }}
+                                        </p>
                                     </div>
                                 </div>
 
@@ -633,7 +928,8 @@
                                                     id="Male"
                                                     name="gender"
                                                     value="Male"
-                                                     v-model="form.gender" :error="errors.gender"
+                                                    v-model="form.gender"
+                                                    :error="errors.gender"
                                                     checked
                                                 />
                                                 <label
@@ -641,12 +937,16 @@
                                                     class="block text-center px-4 py-3 bg-white  border-grey border-solid border-2 w-32 h-32"
                                                 >
                                                     <div class="text-3xl mb-2">
-                                                        👦🏻
+                                                        <img
+                                                            class="w-12 h-12 ml-5"
+                                                            src="storage/icon/boy.svg"
+                                                            alt=""
+                                                        />
                                                     </div>
                                                     <div
                                                         class="font-semibold uppercase tracking-wide"
                                                     >
-                                                        <strong>Male</strong>
+                                                        <h3>Male</h3>
                                                     </div>
                                                 </label>
                                             </div>
@@ -656,23 +956,33 @@
                                                     id="Female"
                                                     name="gender"
                                                     value="Female"
-                                                    v-model="form.gender" :error="errors.gender"
+                                                    v-model="form.gender"
+                                                    :error="errors.gender"
                                                 />
                                                 <label
                                                     for="Female"
                                                     class="block text-center px-4 py-3 bg-white  border-grey border-solid border-2 w-32 h-32"
                                                 >
                                                     <div class="text-3xl mb-2">
-                                                        👧🏻
+                                                        <img
+                                                            class="w-12 h-12 ml-5"
+                                                            src="storage/icon/girl.svg"
+                                                            alt=""
+                                                        />
                                                     </div>
                                                     <div
                                                         class="font-semibold uppercase tracking-wide"
                                                     >
-                                                        <strong>Female</strong>
+                                                        <h3>Female</h3>
                                                     </div>
                                                 </label>
                                             </div>
                                         </div>
+                                    </div>
+                                    <div class="container flex justify-center">
+                                        <p class="text-red-700 italic mt-1">
+                                            {{ errors.gender }}
+                                        </p>
                                     </div>
                                 </div>
 
@@ -680,52 +990,64 @@
                                     <div class="w-full md:w-1/2 px-3   md:mb-0">
                                         <label
                                             class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                                            for="grid-first-name"
+                                            for="grid-full-name"
                                         >
                                             Full Name
                                         </label>
                                         <input
-                                            class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-                                            id="grid-first-name"
+                                            class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
+                                            id="grid-full-name"
                                             type="text"
-                                            v-model="form.full_name" :error="errors.full_name"
+                                            v-model="form.full_name"
+                                            :error="errors.full_name"
                                             placeholder="Jane"
                                         />
+                                        <p class="text-red-700 italic">
+                                            {{ errors.full_name }}
+                                        </p>
                                     </div>
                                     <div class="w-full md:w-1/2 px-3">
                                         <label
                                             class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                                            for="grid-last-name"
+                                            for="grid-birthdate"
                                         >
                                             Birhtdate
                                         </label>
                                         <input
                                             class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                                            id="grid-last-name"
+                                            id="grid-birthdate"
                                             type="date"
-                                            v-model="form.birthdate" :error="errors.birthdate"
+                                            v-model="form.birthdate"
+                                            :error="errors.birthdate"
                                             placeholder="Doe"
                                         />
+                                        <p class="text-red-700 italic">
+                                            {{ errors.birthdate }}
+                                        </p>
                                     </div>
                                 </div>
 
-                                <div class="flex flex-wrap -mx-3 mb-2">
+                                <div class="flex flex-wrap -mx-3 mb-10">
                                     <div
                                         class="w-full  px-3 md:w-1/2 mb-6 md:mb-0"
                                     >
                                         <label
                                             class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                                            for="grid-city"
+                                            for="grid-birt-cert"
                                         >
                                             Birth Certification Number
                                         </label>
                                         <input
                                             class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                                            id="grid-city"
+                                            id="grid-birt-cert"
                                             type="text"
-                                             v-model="form.no_birth_cert" :error="errors.no_birth_cert"
-                                            placeholder="Albuquerque"
+                                            v-model="form.no_birth_cert"
+                                            :error="errors.no_birth_cert"
+                                            placeholder="L-123456"
                                         />
+                                        <p class="text-red-700 italic">
+                                            {{ errors.no_birth_cert }}
+                                        </p>
                                     </div>
 
                                     <div
@@ -733,43 +1055,203 @@
                                     >
                                         <label
                                             class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                                            for="grid-my_kid"
+                                            >My Kid Number
+                                        </label>
+                                        <input
+                                            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                                            id="grid-my_kid"
+                                            type="text"
+                                            v-model="form.no_mykid"
+                                            :error="errors.no_mykid"
+                                            placeholder="1234-56-7890"
+                                        />
+                                        <p class="text-red-700 italic">
+                                            {{ errors.no_mykid }}
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="flex flex-wrap -mx-3 mb-10">
+                                    <div
+                                        class="w-full md:w-1/4 px-3 mb-6 md:mb-0"
+                                    >
+                                        <label
+                                            class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                                            for="grid-address"
+                                        >
+                                            Address
+                                        </label>
+                                        <input
+                                            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                                            id="grid-adress"
+                                            v-model="form.address"
+                                            :error="errors.address"
+                                            type="text"
+                                            placeholder="Kubu Gajah "
+                                        />
+                                        <p class="text-red-700 italic">
+                                            {{ errors.address }}
+                                        </p>
+                                    </div>
+
+                                    <div
+                                        class="w-full md:w-1/4 px-3 mb-6 md:mb-0"
+                                    >
+                                        <label
+                                            class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                                             for="grid-city"
                                         >
-                                            My Kid Number
+                                            City
                                         </label>
                                         <input
                                             class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                             id="grid-city"
+                                            v-model="form.city"
+                                            :error="errors.city"
                                             type="text"
-                                             v-model="form.no_mykid" :error="errors.no_mykid"
-                                            placeholder="Albuquerque"
+                                            placeholder="Sungai Buloh"
                                         />
+                                        <p class="text-red-700 italic">
+                                            {{ errors.city }}
+                                        </p>
+                                    </div>
+                                    <div
+                                        class="w-full md:w-1/4 px-3 mb-6 md:mb-0"
+                                    >
+                                        <label
+                                            class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                                            for="grid-zip"
+                                        >
+                                            Zip
+                                        </label>
+                                        <input
+                                            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                                            id="grid-zip"
+                                            v-model="form.zip"
+                                            :error="errors.zip"
+                                            type="text"
+                                            placeholder="47000"
+                                        />
+                                        <p class="text-red-700 italic">
+                                            {{ errors.zip }}
+                                        </p>
+                                    </div>
+                                    <div
+                                        class="w-full md:w-1/4 px-3 mb-6 md:mb-0"
+                                    >
+                                        <label
+                                            class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                                            for="grid-state"
+                                        >
+                                            State
+                                        </label>
+                                        <div class="relative">
+                                            <select
+                                                class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                                                v-model="form.state"
+                                                :error="errors.state"
+                                                id="grid-state"
+                                            >
+                                                <option value="Johor"
+                                                    >Johor</option
+                                                >
+                                                <option value="Kedah"
+                                                    >Kedah</option
+                                                >
+                                                <option value="Kelantan"
+                                                    >Kelantan</option
+                                                >
+                                                <option value="Kuala Lumpur"
+                                                    >Kuala Lumpur</option
+                                                >
+                                                <option value="Melaka"
+                                                    >Melaka</option
+                                                >
+                                                <option value="Negeri Sembilan"
+                                                    >Negeri Sembilan</option
+                                                >
+                                                <option value="Pahang"
+                                                    >Pahang</option
+                                                >
+                                                <option value="Perak"
+                                                    >Perak</option
+                                                >
+                                                <option value="Perlis"
+                                                    >Perlis</option
+                                                >
+                                                <option value="Penang"
+                                                    >Penang</option
+                                                >
+                                                <option value="Sabah"
+                                                    >Sabah</option
+                                                >
+                                                <option value="Sarawak"
+                                                    >Sarawak</option
+                                                >
+                                                <option
+                                                    value="Selangor"
+                                                    selected="selected"
+                                                    >Selangor</option
+                                                >
+                                                <option value="Terengganu"
+                                                    >Terengganu</option
+                                                >
+                                            </select>
+                                            <p class="text-red-700 italic">
+                                        {{ errors.state }}
+                                    </p>
+                                            <div
+                                                class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"
+                                            >
+                                                <svg
+                                                    class="fill-current h-4 w-4"
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    viewBox="0 0 20 20"
+                                                >
+                                                    <path
+                                                        d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
+                                                    />
+                                                </svg>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
 
-
-                                <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                                <div
+                                    class="w-full md:w-1/2 px-3 mb-6  md:mb-0 content-center"
+                                >
                                     <label
-                                        class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                                        for="grid-zip"
+                                        class=" uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                                        for="grid-photo"
                                     >
-                                        Upload Image
+                                        Upload Student's Photo
                                     </label>
-                                    <input
-                                        class=""
-                                        id="grid-zip"
+                                    <file-input
+                                        v-bind:form="form"
+                                        v-model="form.photo_temp"
+                                        :error="errors.photo_temp"
+                                        class="pr-6 pb-8 w-full lg:w-full "
                                         type="file"
-
+                                        accept="image/*"
                                     />
+                                    <p class="text-red-700 italic">
+                                        {{ errors.photo_temp }}
+                                    </p>
                                 </div>
+                                <student-allergy />
 
-                                <div class="flex flex-wrap  mb-2">
+                                <div class="flex flex-wrap mb-2">
                                     <div
-                                        class="w-full md:w-1/3 px-3 mb-6 md:mb-0"
+                                        class="w-full md:w-full px-3 mb-6 md:mb-0 text-center"
                                     >
-                              <button wire:click.prevent="store()" type="button" class="inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2 bg-green-600 text-base leading-6 font-medium text-white shadow-sm hover:bg-green-500 focus:outline-none focus:border-green-700 focus:shadow-outline-green transition ease-in-out duration-150 sm:text-sm sm:leading-5" @click="save(form)">
-                                Save
-                              </button>
+                                        <button
+                                            type="button"
+                                            class=" place-self-center w-1/4 rounded-md border border-transparent px-2 py-2 bg-indigo-600 text-base leading-6 font-medium text-white shadow-sm hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-green transition ease-in-out duration-150 sm:text-sm sm:leading-5"
+                                            @click.prevent="submit"
+                                        >
+                                            Save
+                                        </button>
                                     </div>
                                 </div>
                             </form>
@@ -789,36 +1271,51 @@
 <script>
 import Layout from "../../../Shared/Layout";
 import Pagination from "../../../Shared/Pagination";
+import FileInput from "../../../Shared/FileInput";
+import StudentAllergy from "../../../Shared/StudentAllergy";
+
 
 export default {
     props: {
         kids: Object,
         kids_count: Number,
-        errors: Object,
+        errors: Object
     },
     data() {
         // <== changed this line
         return {
             show: false,
+            photo: FormData,
             form: {
-                     full_name: null,
-                    birthdate: null,
-                     no_mykid: null,
-                    place_birth: null,
-                     gender: null,
-                     no_birth_cert: null,
-                     package_id:null,
-                     photo:null,
-                     place_birth:null
-
-      },
+                package_id: null,
+                full_name: null,
+                birthdate: null,
+                no_mykid: null,
+                gender: null,
+                no_birth_cert: null,
+                address: null,
+                city: null,
+                zip: null,
+                state: null,
+                photo_temp: null
+            }
         };
     },
     components: {
         Layout,
-        Pagination
+        Pagination,
+        FileInput,
+        StudentAllergy
     },
+
+    computed: {
+        addIdError() {
+            return (this.errors.id = 1);
+        }
+    },
+
     methods: {
+        // Get Age from birthdate
         getAge: function(dateString) {
             var today = new Date();
             var birthDate = new Date(dateString);
@@ -829,21 +1326,45 @@ export default {
             }
             return age;
         },
-
+        // Close Register Student Modal
         closeModal() {
             this.show = false;
             document.querySelector("body").classList.remove("overflow-hidden");
         },
+        // Open Register Student Modal
         openModal() {
             this.show = true;
             document.querySelector("body").classList.add("overflow-hidden");
         },
-       save: function (kids) {
-                this.$inertia.post('/kids', kids)
+        // Submit Form to the server
+        submit() {
+            const data = new FormData();
+            data.append("full_name", this.form.full_name || "");
+            data.append("birthdate", this.form.birthdate || "");
+            data.append("no_mykid", this.form.no_mykid || "");
+            data.append("place_birth", this.form.place_birth || "");
+            data.append("gender", this.form.gender || "");
+            data.append("no_birth_cert", this.form.no_birth_cert || "");
+            data.append("address", this.form.address || "");
+            data.append("city", this.form.city || "");
+            data.append("zip", this.form.zip || "");
+            data.append("state", this.form.state || "");
+            data.append("package_id", this.form.package_id || "");
+            data.append("photo_temp", this.form.photo_temp || "");
 
-                this.closeModal();
+            this.$inertia.post("/kids", data);
 
-            },
+            if (!this.errors) {
+                return (this.show = true);
+            }
+        },
+        // Check wheather there is an error
+        isEmpty: function(obj) {
+            for (var key in obj) {
+                if (obj.hasOwnProperty(key)) return true;
+            }
+            return false;
+        }
     }
 };
 </script>
@@ -857,7 +1378,7 @@ export default {
     right: 0;
     bottom: 0;
     left: 0;
-    z-index: 9;
+    z-index: 40;
     &__backdrop {
         background-color: rgba(0, 0, 0, 0.3);
         position: fixed;
@@ -870,7 +1391,7 @@ export default {
     &__dialog {
         background-color: #ffffff;
         position: relative;
-        width: 600px;
+        width: 60%;
         margin: 50px auto;
         display: flex;
         flex-direction: column;
@@ -886,7 +1407,6 @@ export default {
 
         align-items: flex-start;
         justify-content: space-between;
-
     }
     &__body {
         padding: 10px 20px 10px;
@@ -967,5 +1487,6 @@ input[type="radio"]:checked + label {
     border-color: black;
     border: 2em;
     background-color: #5a67d8;
+    box-shadow: 10px 10px;
 }
 </style>

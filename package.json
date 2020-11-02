@@ -28,9 +28,13 @@
         "@inertiajs/inertia-vue": "^0.4.0",
         "font-awesome": "^4.7.0",
         "laravel-vue-pagination": "^2.3.1",
+        "object-hash": "^2.0.3",
         "tailwindcss": "^1.9.4",
         "vue-clickaway": "^2.2.2",
+        "vue-cropperjs": "^4.1.0",
         "vue-dynamic-dropdown": "^1.0.12",
+        "vue-image-crop-upload": "^2.5.0",
+        "vue-tailwind-picker": "^1.1.5",
         "vuejs-paginate": "^2.1.0"
     }
 }

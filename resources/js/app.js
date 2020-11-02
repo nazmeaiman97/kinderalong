@@ -3,6 +3,10 @@ require('./bootstrap');
 import { App, plugin } from '@inertiajs/inertia-vue'
 import Vue from 'vue'
 
+
+
+
+
 Vue.mixin({ methods: { route: window.route } })
 Vue.prototype.$route = (...args) => route(...args).url()
 
